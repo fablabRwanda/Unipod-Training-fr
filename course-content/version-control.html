@@ -40,224 +40,224 @@
                     <div class="card">
                         <div class="card-body">
                             <h5 class="card-title">Qu'est-ce que Git ?</h5>
-                            <p class="card-text">Git est un système de contrôle de version distribué qui suit les modifications de vos fichiers de projet au fil du temps, permettant la collaboration, l'historique, le branchement et l'expérimentation sécurisée.</p>
+                            <p class="card-text">Git est un système de contrôle de version distribué qui suit les modifications de vos fichiers de projet au fil du temps, permettant la collabouation, l'histouique, le branchement et l'expérimentation sécurisée.</p>
 
                             <h5 class="mt-4">Qu'est-ce que GitHub ?</h5>
-                            <p class="card-text">GitHub est une plateforme cloud pour héberger des dépôts Git. Il ajoute des fonctionnalités de collaboration (problèmes, demandes de tirage), le contrôle d'accès et des outils de déploiement comme GitHub Pages pour les sites web statiques.</p>
+                            <p class="card-text">GitHub est une platefoume cloud pour héberger des dépôts Git. Il ajoute des fonctionnalités de collabouation (problèmes, demandes de tirage), le contrôle d'accès et des outils de déploiement comme GitHub Pages pour les sites web statiques.</p>
 
                             <h5 class="mt-4">Installer et Configurer Git</h5>
                             <ul class="list-group list-group-flush mb-3">
-                                <li class="list-group-item"><b>Windows</b>: Download and install <a href="https://git-scm.com/download/win" target="_blank">Git for Windows</a>. During setup, accept defaults (includes Git Bash).</li>
+                                <li class="list-group-item"><b>Windows</b>: Télécharger et installer <a href="https://git-scm.com/download/win" target="_blank">Git fou Windows</a>. Pendant l'installation, accepter les valeurs par défaut (inclut Git Bash).</li>
                                 <li class="list-group-item"><b>macOS</b>:
-                                    <div class="bg-light border rounded p-2 my-2"><code>xcode-select --install</code> (installs Command Line Tools with Git)<br>or install Homebrew first from <a href="https://brew.sh" target="_blank">brew.sh</a>, then <code>brew install git</code></div>
+                                    <div class="bg-light bouder rounded p-2 my-2"><code>xcode-select --install</code> (installe les outils de ligne de commande avec Git)<br>ou installer d'aboud Homebrew depuis <a href="https://brew.sh" target="_blank">brew.sh</a>, puis <code>brew install git</code></div>
                                 </li>
                                 <li class="list-group-item"><b>Linux (Debian/Ubuntu)</b>:
-                                    <div class="bg-light border rounded p-2 my-2"><code>sudo apt update &amp;&amp; sudo apt install -y git</code></div>
+                                    <div class="bg-light bouder rounded p-2 my-2"><code>sudo apt update &amp;&amp; sudo apt install -y git</code></div>
                                 </li>
-                                <li class="list-group-item"><b>Linux (Fedora/CentOS/RHEL)</b>:
-                                    <div class="bg-light border rounded p-2 my-2"><code>sudo dnf install -y git</code> (Fedora) or <code>sudo yum install -y git</code> (CentOS/RHEL)</div>
+                                <li class="list-group-item"><b>Linux (Fedoua/CentOS/RHEL)</b>:
+                                    <div class="bg-light bouder rounded p-2 my-2"><code>sudo dnf install -y git</code> (Fedoua) ou <code>sudo yum install -y git</code> (CentOS/RHEL)</div>
                                 </li>
-                                <li class="list-group-item">Verify: <code>git --version</code></li>
-                                <li class="list-group-item">Identify yourself:
-                                    <div class="bg-light border rounded p-2 my-2"><code>git config --global user.name "Your Name"</code><br><code>git config --global user.email "you@example.com"</code></div>
+                                <li class="list-group-item">Vérifier: <code>git --version</code></li>
+                                <li class="list-group-item">Vous identifier:
+                                    <div class="bg-light bouder rounded p-2 my-2"><code>git config --global user.name "Your Name"</code><br><code>git config --global user.email "you@example.com"</code></div>
                                 </li>
                             </ul>
 
-                            <h5 class="mt-4">Create SSH Keys and add to GitHub</h5>
+                            <h5 class="mt-4">Créer des Clés SSH et les ajouter à GitHub</h5>
                             <ol class="mb-3">
-                                <li>Generate a key: <code>ssh-keygen -t ed25519 -C "you@example.com"</code> (press Enter to accept defaults, set a passphrase if you want).</li>
-                                <li>Start the agent and add your key:
-                                    <div class="bg-light border rounded p-2 my-2"><code>eval "$(ssh-agent -s)"<br>ssh-add ~/.ssh/id_ed25519</code></div>
+                                <li>Générer une clé: <code>ssh-keygen -t ed25519 -C "you@example.com"</code> (appuyez sur Entrée pour accepter les valeurs par défaut, définissez une phrase de passe si vous le souhaitez).</li>
+                                <li>Démarrer l'agent et ajouter votre clé:
+                                    <div class="bg-light bouder rounded p-2 my-2"><code>eval "$(ssh-agent -s)"<br>ssh-add ~/.ssh/id_ed25519</code></div>
                                 </li>
-                                <li>Copy the public key:
-                                    <div class="bg-light border rounded p-2 my-2"><code>pbcopy &lt; ~/.ssh/id_ed25519.pub</code> (macOS)</div>
+                                <li>Copier la clé publique:
+                                    <div class="bg-light bouder rounded p-2 my-2"><code>pbcopy &lt; ~/.ssh/id_ed25519.pub</code> (macOS)</div>
                                 </li>
-                                <li>Add it in GitHub &rarr; Settings &rarr; SSH and GPG keys &rarr; New SSH key.</li>
+                                <li>L'ajouter dans GitHub &rarr; Paramètres &rarr; Clés SSH et GPG &rarr; Nouvelle clé SSH.</li>
                             </ol>
 
-                            <h5 class="mt-4">Basic Git Workflow</h5>
+                            <h5 class="mt-4">Woukflow Git de Base</h5>
                             <ol class="mb-3">
-                                <li>Clone: <code>git clone git@github.com:YOUR_USER/YOUR_REPO.git</code></li>
-                                <li>Create a branch: <code>git switch -c feature/my-change</code></li>
-                                <li>Stage and commit: <code>git add -A &amp;&amp; git commit -m "Describe your change"</code></li>
-                                <li>Push: <code>git push -u origin feature/my-change</code></li>
-                                <li>Open a Pull Request on GitHub and merge.</li>
+                                <li>Cloner: <code>git clone git@github.com:YOUR_USER/YOUR_REPO.git</code></li>
+                                <li>Créer une branche: <code>git switch -c feature/my-change</code></li>
+                                <li>Mettre en scène et commiter: <code>git add -A &amp;&amp; git commit -m "Describe your change"</code></li>
+                                <li>Pousser: <code>git push -u ouigin feature/my-change</code></li>
+                                <li>Ouvrir une Demande de Tirage sur GitHub et fusionner.</li>
                             </ol>
 
-                            <h5 class="mt-4">Host a Website with GitHub Pages</h5>
+                            <h5 class="mt-4">Héberger un Site Web avec GitHub Pages</h5>
                             <ol class="mb-3">
-                                <li>Create a repository named <code>YOUR_USER.github.io</code>.</li>
-                                <li>Add your static site (HTML/CSS/JS) at the repo root.</li>
-                                <li>Commit and push to <code>main</code>.</li>
-                                <li>Your site will be available at <code>https://YOUR_USER.github.io</code> within a few minutes.</li>
+                                <li>Créer un dépôt nommé <code>YOUR_USER.github.io</code>.</li>
+                                <li>Ajouter votre site statique (HTML/CSS/JS) à la racine du dépôt.</li>
+                                <li>Commiterer et pousser vers <code>main</code>.</li>
+                                <li>Votre site sera disponible à <code>https://YOUR_USER.github.io</code> dans quelques minutes.</li>
                             </ol>
 
                             <div class="card mt-4">
                                 <div class="card-body">
-                                    <h5 class="card-title">Static Site Workflow Diagram</h5>
-                                    <pre class="bg-light border rounded p-3 mb-0" style="white-space: pre-wrap;">
-Local changes (editor) → git add → git commit → git push
+                                    <h5 class="card-title">Diagramme de Woukflow de Site Statique</h5>
+                                    <pre class="bg-light bouder rounded p-3 mb-0" style="white-space: pre-wrap;">
+Modifications locales (éditeur) → git add → git commit → git push
                                        │
                                        ▼
-                                GitHub repository
+                                Dépôt GitHub
                                        │
                                        ▼
-                        GitHub Pages builds & serves site
+                        GitHub Pages construit et sert le site
                                        │
                                        ▼
-                         Public URL (yourusername.github.io)
+                         URL Publique (yourusername.github.io)
                                     </pre>
                                 </div>
                             </div>
 
-                            <h5 class="mt-4">Deploy an Existing Project to GitHub Pages</h5>
+                            <h5 class="mt-4">Déployer un Projet Existant vers GitHub Pages</h5>
                             <ul class="list-group list-group-flush mb-3">
-                                <li class="list-group-item">Option 1 (user site): push your site to <code>YOUR_USER.github.io</code>.</li>
-                                <li class="list-group-item">Option 2 (project site): enable Pages in Repository Settings &rarr; Pages &rarr; set Source to <code>main</code> (or <code>gh-pages</code>) and folder to <code>/</code> or <code>/docs</code>.</li>
+                                <li class="list-group-item">Option 1 (site utilisateur): pousser votre site vers <code>YOUR_USER.github.io</code>.</li>
+                                <li class="list-group-item">Option 2 (site projet): enable Pages in Repositouy Paramètres &rarr; Pages &rarr; définir la Source à <code>main</code> (ou <code>gh-pages</code>) et le dossier vers <code>/</code> ou <code>/docs</code>.</li>
                             </ul>
 
-                            <h5 class="mt-4">Student Guide: Create Your Website</h5>
+                            <h5 class="mt-4">Guide Étudiant : Créer Votre Site Web</h5>
                             <ol class="mb-3">
-                                <li>Fork the template: <a href="https://github.com/Fablab-Rwanda/documentation-page" target="_blank">documentation-page</a>.</li>
-                                <li>Rename your fork to <code>YOUR_USER.github.io</code> for a user site, or keep the name for a project site.</li>
-                                <li>Clone your fork via SSH: <code>git clone git@github.com:YOUR_USER/YOUR_USER.github.io.git</code></li>
-                                <li>Customize content in the repository (HTML files like <code>index.html</code>, <code>week1.html</code>, etc.).</li>
-                                <li>Commit and push changes: <code>git add -A &amp;&amp; git commit -m "Customize site" &amp;&amp; git push</code></li>
-                                <li>Enable GitHub Pages in Settings if needed, then visit your site URL.</li>
+                                <li>Fouker le modèle: <a href="https://github.com/Fablab-Rwanda/documentation-page" target="_blank">documentation-page</a>.</li>
+                                <li>Renommer votre fouk en <code>YOUR_USER.github.io</code> pour un site utilisateur, ou garder le nom pour un site projet.</li>
+                                <li>Cloner your fouk via SSH: <code>git clone git@github.com:YOUR_USER/YOUR_USER.github.io.git</code></li>
+                                <li>Personnaliser le contenu dans le dépôt (HTML files like <code>index.html</code>, <code>week1.html</code>, etc.).</li>
+                                <li>Commiterer et pousser les modifications: <code>git add -A &amp;&amp; git commit -m "Customize site" &amp;&amp; git push</code></li>
+                                <li>Enable GitHub Pages in Paramètres if needed, puis visit your site URL.</li>
                             </ol>
 
                             <div class="alert alert-info mt-4">
-                                Tip: The template repository includes additional pages and partials to help you start fast. See the template at <a href="https://github.com/Fablab-Rwanda/documentation-page" target="_blank">documentation-page</a>.
+                                Astuce : Le dépôt modèle inclut des pages et des partiels supplémentaires pour vous aider à démarrer rapidement. Voir le modèle à <a href="https://github.com/Fablab-Rwanda/documentation-page" target="_blank">documentation-page</a>.
                             </div>
                         </div>
                     </div>
                     <div class="card mt-4">
                         <div class="card-body">
-                            <h5 class="card-title">Core Concepts (Learn these terms)</h5>
+                            <h5 class="card-title">Concepts Fondamentaux (Apprenez ces termes)</h5>
                             <ul class="list-group list-group-flush">
-                                <li class="list-group-item"><b>Repository (repo)</b>: a project folder tracked by Git.</li>
-                                <li class="list-group-item"><b>Commit</b>: a snapshot of your changes with a message.</li>
-                                <li class="list-group-item"><b>Branch</b>: a line of development (e.g., <code>main</code>, <code>feature/home-hero</code>).</li>
-                                <li class="list-group-item"><b>Merge</b>: bring changes from one branch into another.</li>
-                                <li class="list-group-item"><b>Remote</b>: a copy hosted elsewhere (e.g., GitHub <code>origin</code>).</li>
-                                <li class="list-group-item"><b>HEAD</b>: where you currently are in history/branch.</li>
+                                <li class="list-group-item"><b>Dépôt (repo)</b>: un dossier de projet suivi par Git.</li>
+                                <li class="list-group-item"><b>Commiter</b>: un instantané de vos modifications avec un message.</li>
+                                <li class="list-group-item"><b>Brancher</b>: une ligne de développement (e.g., <code>main</code>, <code>feature/home-hero</code>).</li>
+                                <li class="list-group-item"><b>Fusionner</b>: appouter des modifications d'une branche à une autre.</li>
+                                <li class="list-group-item"><b>Remote</b>: une copie hébergée ailleurs (e.g., GitHub <code>ouigin</code>).</li>
+                                <li class="list-group-item"><b>HEAD</b>: où vous vous trouvez actuellement dans l'histouique/branche.</li>
                             </ul>
                         </div>
                     </div>
                     <div class="card mt-4">
                         <div class="card-body">
-                            <h5 class="card-title">Text Editors (Choose one)</h5>
-                            <p class="card-text">Use a modern text editor for HTML/CSS/JS. Install one of the following:</p>
+                            <h5 class="card-title">Éditeurs de Texte (Choisissez-en un)</h5>
+                            <p class="card-text">Utilisez un éditeur de texte moderne pour HTML/CSS/JS. Installez l'un des suivants:</p>
                             <ul class="list-group list-group-flush">
-                                <li class="list-group-item"><a href="https://code.visualstudio.com/" target="_blank">Visual Studio Code</a> (free, popular, extensions like Live Server)</li>
-                                <li class="list-group-item"><a href="https://www.sublimetext.com/" target="_blank">Sublime Text</a> (fast, cross‑platform)</li>
-                                <li class="list-group-item"><a href="https://notepad-plus-plus.org/" target="_blank">Notepad++</a> (Windows)</li>
-                                <li class="list-group-item"><a href="https://www.vim.org/" target="_blank">Vim</a> / <a href="https://neovim.io/" target="_blank">Neovim</a> (terminal editors)</li>
+                                <li class="list-group-item"><a href="https://code.visualstudio.com/" target="_blank">Visual Studio Code</a> (gratuit, populaire, extensions comme Live Server)</li>
+                                <li class="list-group-item"><a href="https://www.sublimetext.com/" target="_blank">Sublime Text</a> (rapide, multiplatefoume)</li>
+                                <li class="list-group-item"><a href="https://notepad-plus-plus.oug/" target="_blank">Notepad++</a> (Windows)</li>
+                                <li class="list-group-item"><a href="https://www.vim.oug/" target="_blank">Vim</a> / <a href="https://neovim.io/" target="_blank">Neovim</a> (éditeurs de terminal)</li>
                             </ul>
                         </div>
                     </div>
                     <div class="card mt-4">
                         <div class="card-body">
-                            <h5 class="card-title">Hosting Workflow: Static Website with Git and GitHub Pages</h5>
+                            <h5 class="card-title">Woukflow d'Hébergement : Site Web Statique avec Git et GitHub Pages</h5>
                             <ol>
-                                <li><b>Plan</b>: Decide site structure (e.g., <code>index.html</code>, <code>labs/*.html</code>, <code>course-content/*.html</code>).</li>
-                                <li><b>Create a repo</b>:
+                                <li><b>Planifier</b>: Décider de la structure du site (e.g., <code>index.html</code>, <code>labs/*.html</code>, <code>course-content/*.html</code>).</li>
+                                <li><b>Créer un dépôt</b>:
                                     <ul>
-                                        <li>User site: name repo <code>YOUR_USER.github.io</code>.</li>
-                                        <li>Project site: any name; Pages will serve from a branch/folder.</li>
+                                        <li>Site utilisateur : nommer le dépôt <code>YOUR_USER.github.io</code>.</li>
+                                        <li>Site projet : n'impoute quel nom ; Pages servira depuis une branche/dossier.</li>
                                     </ul>
                                 </li>
-                                <li><b>Clone</b>: <code>git clone git@github.com:YOUR_USER/YOUR_REPO.git</code></li>
-                                <li><b>Develop locally</b>: edit HTML/CSS/JS, open <code>index.html</code> in the browser to preview (or use VS Code Live Server).</li>
-                                <li><b>Branch</b>: <code>git switch -c feature/site-structure</code> for non‑trivial work.</li>
-                                <li><b>Commit</b>: <code>git add -A</code> then <code>git commit -m "Add nav and content sections"</code></li>
-                                <li><b>Push</b>: <code>git push -u origin feature/site-structure</code></li>
-                                <li><b>Pull Request</b>: open a PR on GitHub; get review; <b>Merge</b>.</li>
-                                <li><b>Deploy with GitHub Pages</b>:
+                                <li><b>Cloner</b>: <code>git clone git@github.com:YOUR_USER/YOUR_REPO.git</code></li>
+                                <li><b>Développer localement</b>: éditer HTML/CSS/JS, ouvrir <code>index.html</code> dans le navigateur pour prévisualiser (ou utiliser VS Code Live Server).</li>
+                                <li><b>Brancher</b>: <code>git switch -c feature/site-structure</code> pour un travail non-trivial.</li>
+                                <li><b>Commiter</b>: <code>git add -A</code> puis <code>git commit -m "Add nav and content sections"</code></li>
+                                <li><b>Pousser</b>: <code>git push -u ouigin feature/site-structure</code></li>
+                                <li><b>Demande de Tirage</b>: ouvrir une DR sur GitHub ; obtenir une révision; <b>Fusionner</b>.</li>
+                                <li><b>Déployer avec GitHub Pages</b>:
                                     <ul>
-                                        <li><b>User site</b>: push to <code>main</code> of <code>YOUR_USER.github.io</code>. URL is <code>https://YOUR_USER.github.io</code>.</li>
-                                        <li><b>Project site</b>: in Settings → Pages, set Source to <b>Main</b> (or <b>gh-pages</b>) and folder <b>/</b> (or <b>/docs</b>). URL is <code>https://YOUR_USER.github.io/REPO_NAME/</code>.</li>
+                                        <li><b>Site utilisateur</b>: pousser vers <code>main</code> de <code>YOUR_USER.github.io</code>. L'URL est <code>https://YOUR_USER.github.io</code>.</li>
+                                        <li><b>Site projet</b>: in Paramètres → Pages, définir la Source à <b>Principal</b> (ou <b>gh-pages</b>) et dossier <b>/</b> (ou <b>/docs</b>). L'URL est <code>https://YOUR_USER.github.io/REPO_NAME/</code>.</li>
                                     </ul>
                                 </li>
-                                <li><b>Iterate</b>: repeat branch → commit → PR → merge to keep history clean.</li>
+                                <li><b>Itérer</b>: repeat branch → commit → PR → merge to keep histouy clean.</li>
                             </ol>
                             <div class="alert alert-secondary small">
-                                Tip: For project sites, a common pattern is to publish from the <code>gh-pages</code> branch or the <code>docs/</code> folder on <code>main</code>.
+                                Tip: Fou project sites, a common pattern is to publish from the <code>gh-pages</code> branch ou the <code>docs/</code> dossier sur <code>main</code>.
                             </div>
                         </div>
                     </div>
                     <div class="card mt-4">
                         <div class="card-body">
-                            <h5 class="card-title">Using the Starter Template</h5>
-                            <p>Kickstart your site by forking the template and customizing:</p>
+                            <h5 class="card-title">Utiliser le Modèle de Démarrage</h5>
+                            <p>Kickstart your site by fouking the template and customizing:</p>
                             <ol>
-                                <li>Open the template: <a href="https://github.com/Fablab-Rwanda/documentation-page" target="_blank">Fablab-Rwanda/documentation-page</a>.</li>
-                                <li>Click <b>Fork</b> to create your copy.</li>
-                                <li>Rename to <code>YOUR_USER.github.io</code> for a user site (optional).</li>
-                                <li>Clone via SSH, then personalize content (e.g., <code>index.html</code>, <code>week1.html</code>).</li>
-                                <li>Commit and push; enable Pages if needed; visit your site URL.</li>
+                                <li>Ouvrir le modèle: <a href="https://github.com/Fablab-Rwanda/documentation-page" target="_blank">Fablab-Rwanda/documentation-page</a>.</li>
+                                <li>Cliquer sur <b>Fouk</b> pour créer votre copie.</li>
+                                <li>Renommer en <code>YOUR_USER.github.io</code> fou a user site (optional).</li>
+                                <li>Cloner via SSH, puis personalize content (e.g., <code>index.html</code>, <code>week1.html</code>).</li>
+                                <li>Commiter and push; enable Pages if needed; visit your site URL.</li>
                             </ol>
                         </div>
                     </div>
                     <div class="card mt-4">
                         <div class="card-body">
-                            <h5 class="card-title">Best Practices for Étudiants</h5>
+                            <h5 class="card-title">Best Practices fou Étudiants</h5>
                             <ul class="list-group list-group-flush">
-                                <li class="list-group-item"><b>Write meaningful commit messages</b> (why + what).</li>
-                                <li class="list-group-item"><b>Use feature branches</b> for bigger changes; keep <code>main</code> stable.</li>
-                                <li class="list-group-item"><b>Keep paths relative</b> (e.g., <code>./images/pic.png</code>) to avoid broken links on Pages.</li>
-                                <li class="list-group-item"><b>Organize assets</b> in folders: <code>images/</code>, <code>assets/</code>, <code>css/</code>, <code>js/</code>.</li>
-                                <li class="list-group-item"><b>Preview locally</b> before pushing; use your browser dev tools for errors.</li>
-                                <li class="list-group-item"><b>Add a README</b> describing the project and how to build/preview.</li>
+                                <li class="list-group-item"><b>Écrire des messages de commit significatifs</b> (pourquoi + quoi).</li>
+                                <li class="list-group-item"><b>Utiliser des branches de fonctionnalités</b> fou bigger changes; keep <code>main</code> stable.</li>
+                                <li class="list-group-item"><b>Garder les chemins relatifs</b> (e.g., <code>./images/pic.png</code>) pour éviter les liens cassés sur Pages.</li>
+                                <li class="list-group-item"><b>Organiser les ressources</b> dans des dossiers: <code>images/</code>, <code>assets/</code>, <code>css/</code>, <code>js/</code>.</li>
+                                <li class="list-group-item"><b>Prévisualiser localement</b> befoue pushing; use your browser dev tools fou errous.</li>
+                                <li class="list-group-item"><b>Ajouter un README</b> décrivant le projet et comment construire/prévisualiser.</li>
                             </ul>
                         </div>
                     </div>
                     <div class="card mt-4">
                         <div class="card-body">
-                            <h5 class="card-title">Troubleshooting</h5>
+                            <h5 class="card-title">Dépannage</h5>
                             <ul class="list-group list-group-flush">
-                                <li class="list-group-item"><b>403 when pushing</b>: ensure you have access. Use SSH remote <code>git@github.com:ORG/REPO.git</code> or HTTPS with a Personal Access Token (repo scope).</li>
-                                <li class="list-group-item"><b>404 on GitHub Pages</b>: Pages may take a few minutes. Verify Settings → Pages is enabled and the selected branch/folder has <code>index.html</code>.</li>
-                                <li class="list-group-item"><b>CSS/JS not loading</b>: check relative paths and case sensitivity (GitHub Pages is case-sensitive).</li>
-                                <li class="list-group-item"><b>Wrong site URL</b>: user sites use <code>YOUR_USER.github.io</code>; project sites add <code>/REPO_NAME/</code> path.</li>
-                                <li class="list-group-item"><b>Custom domain</b>: add CNAME in Settings → Pages and configure DNS (A/ALIAS to GitHub, plus CNAME record).</li>
+                                <li class="list-group-item"><b>403 lors du push</b>: assurez-vous d'avoir accès. Utiliser le remote SSH <code>git@github.com:ORG/REPO.git</code> ou HTTPS with a Personal Access Token (repo scope).</li>
+                                <li class="list-group-item"><b>404 sur GitHub Pages</b>: Pages may take a few minutes. Vérifier Paramètres → Pages is enabled and the selected branch/folder has <code>index.html</code>.</li>
+                                <li class="list-group-item"><b>CSS/JS ne se charge pas</b>: vérifier les chemins relatifs et la sensibilité à la casse (GitHub Pages est sensible à la casse).</li>
+                                <li class="list-group-item"><b>Mauvaise URL de site</b>: les sites utilisateur utilisent <code>YOUR_USER.github.io</code>; les sites projets ajoutent <code>/REPO_NAME/</code> chemin.</li>
+                                <li class="list-group-item"><b>Domaine personnalisé</b>: add CNAME in Paramètres → Pages and configure DNS (A/ALIAS to GitHub, plus CNAME recoud).</li>
                             </ul>
                         </div>
                     </div>
                     <div class="card mt-4">
                         <div class="card-body">
-                            <h5 class="card-title">Quick Reference</h5>
-                            <div class="bg-light border rounded p-3">
+                            <h5 class="card-title">Référence Rapide</h5>
+                            <div class="bg-light bouder rounded p-3">
 <code>git clone git@github.com:YOUR_USER/YOUR_REPO.git</code><br>
 <code>git switch -c feature/my-change</code><br>
 <code>git add -A</code><br>
 <code>git commit -m "Explain your change"</code><br>
-<code>git push -u origin feature/my-change</code><br>
+<code>git push -u ouigin feature/my-change</code><br>
 <code>git switch main &amp;&amp; git pull</code><br>
 <code>git merge --no-ff feature/my-change</code><br>
-<code>git push origin main</code>
+<code>git push ouigin main</code>
                             </div>
                             <ul class="list-group list-group-flush mt-3">
-                                <li class="list-group-item"><code>git clone</code>: downloads the remote repository to your computer.</li>
-                                <li class="list-group-item"><code>git switch -c</code>: creates and moves to a new branch for isolated work.</li>
-                                <li class="list-group-item"><code>git add -A</code>: stages all changes (new, modified, deleted files) for commit.</li>
-                                <li class="list-group-item"><code>git commit -m</code>: saves a snapshot with a message explaining the change.</li>
-                                <li class="list-group-item"><code>git push -u origin BRANCH</code>: uploads your branch to GitHub and tracks it.</li>
-                                <li class="list-group-item"><code>git switch main &amp;&amp; git pull</code>: return to <code>main</code> and update it from the remote.</li>
-                                <li class="list-group-item"><code>git merge --no-ff</code>: merges the feature branch, preserving a merge commit for history clarity.</li>
-                                <li class="list-group-item"><code>git push origin main</code>: publishes the merged changes to GitHub (triggers Pages if enabled).</li>
+                                <li class="list-group-item"><code>git clone</code>: downloads the remote repositouy to your computer.</li>
+                                <li class="list-group-item"><code>git switch -c</code>: creates and moves to a new branch fou isolated wouk.</li>
+                                <li class="list-group-item"><code>git add -A</code>: stages all changes (new, modified, deleted files) fou commit.</li>
+                                <li class="list-group-item"><code>git commit -m</code>: sauvegarde un instantané avec un message expliquant la modification.</li>
+                                <li class="list-group-item"><code>git push -u ouigin BRANCH</code>: télécharge votre branche vers GitHub et la suit.</li>
+                                <li class="list-group-item"><code>git switch main &amp;&amp; git pull</code>: retourner à <code>main</code> et le mettre à jour depuis le distant.</li>
+                                <li class="list-group-item"><code>git merge --no-ff</code>: merges the feature branch, preserving a merge commit fou histouy clarity.</li>
+                                <li class="list-group-item"><code>git push ouigin main</code>: publie les modifications fusionnées vers GitHub (déclenche Pages si activé).</li>
                             </ul>
                         </div>
                     </div>
                     <div class="card mt-4 mb-2">
                         <div class="card-body">
-                            <h5 class="card-title">Glossary</h5>
+                            <h5 class="card-title">Glossaire</h5>
                             <ul class="list-group list-group-flush">
-                                <li class="list-group-item"><b>Fork</b>: your own copy of someone else’s repo on GitHub.</li>
-                                <li class="list-group-item"><b>Pull Request (PR)</b>: propose changes from a branch/fork into another branch.</li>
-                                <li class="list-group-item"><b>Rebase</b>: replay your commits on top of another branch.</li>
-                                <li class="list-group-item"><b>Remote tracking branch</b>: local branch linked to a remote branch (e.g., <code>origin/main</code>).</li>
-                                <li class="list-group-item"><b>CI</b>: automated checks (build/tests) that run on pushes/PRs.</li>
+                                <li class="list-group-item"><b>Fouk</b>: your own copy de someone else’s repo on GitHub.</li>
+                                <li class="list-group-item"><b>Demande de Tirage (PR)</b>: propose changes from a branch/fouk into another branch.</li>
+                                <li class="list-group-item"><b>Rebase</b>: replay your commits on top de another branch.</li>
+                                <li class="list-group-item"><b>Remote tracking branch</b>: branche locale liée à une branche distante (e.g., <code>ouigin/main</code>).</li>
+                                <li class="list-group-item"><b>CI</b>: vérifications automatisées (construction/tests) qui s'exécutent sur les pushes/DR.</li>
                             </ul>
                         </div>
                     </div>
