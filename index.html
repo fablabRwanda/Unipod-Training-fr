@@ -3,646 +3,624 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>UNIPOD Formation | Éducation Future-Ready</title>
+    <title>Formation UNIPOD | Partenariat FabLab Rwanda</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        }
-
-        :root {
-            --primary: #00f7ff;
-            --secondary: #7b61ff;
-            --dark: #0a0a1f;
-            --light: #f0f8ff;
-            --accent: #ff2a6d;
-        }
-
-        body {
-            background-color: var(--dark);
-            color: var(--light);
-            overflow-x: hidden;
-            line-height: 1.6;
-        }
-
-        /* Header Styles */
-        header {
-            padding: 1.5rem 5%;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            position: fixed;
-            width: 100%;
-            top: 0;
-            z-index: 1000;
-            background: rgba(10, 10, 31, 0.9);
-            backdrop-filter: blur(10px);
-            border-bottom: 1px solid rgba(0, 247, 255, 0.2);
-        }
-
-        .logo {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-
-        .logo-icon {
-            color: var(--primary);
-            font-size: 2rem;
-        }
-
-        .logo-text {
-            font-size: 1.8rem;
-            font-weight: 700;
-            background: linear-gradient(to right, var(--primary), var(--secondary));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-
-        nav ul {
-            display: flex;
-            list-style: none;
-            gap: 2rem;
-        }
-
-        nav a {
-            color: var(--light);
-            text-decoration: none;
-            font-weight: 500;
-            transition: color 0.3s;
-            position: relative;
-        }
-
-        nav a:hover {
-            color: var(--primary);
-        }
-
-        nav a::after {
-            content: '';
-            position: absolute;
-            bottom: -5px;
-            left: 0;
-            width: 0;
-            height: 2px;
-            background: var(--primary);
-            transition: width 0.3s;
-        }
-
-        nav a:hover::after {
-            width: 100%;
-        }
-
-        .cta-button {
-            background: linear-gradient(45deg, var(--secondary), var(--primary));
-            color: var(--dark);
-            border: none;
-            padding: 0.8rem 1.5rem;
-            border-radius: 30px;
-            font-weight: 600;
-            cursor: pointer;
-            transition: transform 0.3s, box-shadow 0.3s;
-        }
-
-        .cta-button:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 10px 20px rgba(0, 247, 255, 0.3);
-        }
-
-        /* Hero Section */
-        .hero {
-            min-height: 100vh;
-            display: flex;
-            align-items: center;
-            padding: 0 5%;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .hero-content {
-            max-width: 600px;
-            z-index: 2;
-        }
-
-        .hero h1 {
-            font-size: 3.5rem;
-            margin-bottom: 1.5rem;
-            line-height: 1.2;
-        }
-
-        .hero h1 span {
-            background: linear-gradient(to right, var(--primary), var(--accent));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-
-        .hero p {
-            font-size: 1.2rem;
-            margin-bottom: 2rem;
-            color: #a0a0c0;
-        }
-
-        .hero-buttons {
-            display: flex;
-            gap: 1rem;
-        }
-
-        .outline-button {
-            background: transparent;
-            color: var(--primary);
-            border: 2px solid var(--primary);
-            padding: 0.8rem 1.5rem;
-            border-radius: 30px;
-            font-weight: 600;
-            cursor: pointer;
-            transition: all 0.3s;
-        }
-
-        .outline-button:hover {
-            background: rgba(0, 247, 255, 0.1);
-        }
-
-        .hero-visual {
-            position: absolute;
-            right: 5%;
-            top: 50%;
-            transform: translateY(-50%);
-            width: 500px;
-            height: 500px;
-            z-index: 1;
-        }
-
-        .floating-element {
-            position: absolute;
-            border-radius: 50%;
-            background: radial-gradient(circle, var(--primary), transparent);
-            opacity: 0.5;
-            filter: blur(20px);
-            animation: float 6s infinite ease-in-out;
-        }
-
-        .floating-element:nth-child(1) {
-            width: 200px;
-            height: 200px;
-            top: 10%;
-            right: 10%;
-            animation-delay: 0s;
-        }
-
-        .floating-element:nth-child(2) {
-            width: 150px;
-            height: 150px;
-            bottom: 20%;
-            right: 30%;
-            animation-delay: 2s;
-        }
-
-        .floating-element:nth-child(3) {
-            width: 100px;
-            height: 100px;
-            top: 40%;
-            right: 20%;
-            animation-delay: 4s;
-        }
-
-        @keyframes float {
-            0%, 100% { transform: translateY(0) scale(1); }
-            50% { transform: translateY(-20px) scale(1.05); }
-        }
-
-        /* Programs Section */
-        .section-title {
-            text-align: center;
-            margin-bottom: 3rem;
-            font-size: 2.5rem;
-        }
-
-        .section-title span {
-            background: linear-gradient(to right, var(--primary), var(--secondary));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-
-        .programs {
-            padding: 5rem 5%;
-            background: rgba(15, 15, 40, 0.7);
-        }
-
-        .programs-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-        }
-
-        .program-card {
-            background: rgba(20, 20, 50, 0.6);
-            border-radius: 15px;
-            padding: 2rem;
-            transition: transform 0.3s, box-shadow 0.3s;
-            border: 1px solid rgba(123, 97, 255, 0.2);
-            position: relative;
-            overflow: hidden;
-        }
-
-        .program-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 5px;
-            background: linear-gradient(to right, var(--secondary), var(--primary));
-        }
-
-        .program-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
-        }
-
-        .program-icon {
-            font-size: 2.5rem;
-            color: var(--primary);
-            margin-bottom: 1rem;
-        }
-
-        .program-card h3 {
-            font-size: 1.5rem;
-            margin-bottom: 1rem;
-        }
-
-        .program-card p {
-            color: #a0a0c0;
-            margin-bottom: 1.5rem;
-        }
-
-        .program-features {
-            list-style: none;
-            margin-bottom: 2rem;
-        }
-
-        .program-features li {
-            padding: 0.5rem 0;
-            color: #c0c0e0;
-        }
-
-        .program-features li i {
-            color: var(--primary);
-            margin-right: 0.5rem;
-        }
-
-        /* Features Section */
-        .features {
-            padding: 5rem 5%;
-        }
-
-        .features-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 2rem;
-        }
-
-        .feature-card {
-            text-align: center;
-            padding: 2rem;
-        }
-
-        .feature-icon {
-            font-size: 3rem;
-            color: var(--primary);
-            margin-bottom: 1.5rem;
-        }
-
-        .feature-card h3 {
-            font-size: 1.5rem;
-            margin-bottom: 1rem;
-        }
-
-        .feature-card p {
-            color: #a0a0c0;
-        }
-
-        /* CTA Section */
-        .cta-section {
-            padding: 5rem 5%;
-            text-align: center;
-            background: linear-gradient(135deg, rgba(15, 15, 40, 0.9), rgba(10, 10, 31, 0.9));
-            position: relative;
-            overflow: hidden;
-        }
-
-        .cta-section h2 {
-            font-size: 2.5rem;
-            margin-bottom: 1rem;
-        }
-
-        .cta-section p {
-            font-size: 1.2rem;
-            max-width: 600px;
-            margin: 0 auto 2rem;
-            color: #a0a0c0;
-        }
-
-        /* Footer */
-        footer {
-            padding: 3rem 5%;
-            background: rgba(5, 5, 20, 0.9);
-            border-top: 1px solid rgba(123, 97, 255, 0.2);
-        }
-
-        .footer-content {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 2rem;
-            margin-bottom: 2rem;
-        }
-
-        .footer-column h3 {
-            font-size: 1.2rem;
-            margin-bottom: 1.5rem;
-            color: var(--primary);
-        }
-
-        .footer-column ul {
-            list-style: none;
-        }
-
-        .footer-column ul li {
-            margin-bottom: 0.8rem;
-        }
-
-        .footer-column ul li a {
-            color: #a0a0c0;
-            text-decoration: none;
-            transition: color 0.3s;
-        }
-
-        .footer-column ul li a:hover {
-            color: var(--primary);
-        }
-
-        .social-icons {
-            display: flex;
-            gap: 1rem;
-            margin-top: 1rem;
-        }
-
-        .social-icons a {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-            background: rgba(123, 97, 255, 0.2);
-            color: var(--light);
-            transition: all 0.3s;
-        }
-
-        .social-icons a:hover {
-            background: var(--primary);
-            color: var(--dark);
-            transform: translateY(-3px);
-        }
-
-        .copyright {
-            text-align: center;
-            padding-top: 2rem;
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
-            color: #a0a0c0;
-            font-size: 0.9rem;
-        }
-
-        /* Responsive Design */
-        @media (max-width: 992px) {
-            .hero h1 {
-                font-size: 2.8rem;
-            }
-            
-            .hero-visual {
-                width: 400px;
-                height: 400px;
-            }
-        }
-
-        @media (max-width: 768px) {
-            header {
-                flex-direction: column;
-                padding: 1rem 5%;
-            }
-            
-            .logo {
-                margin-bottom: 1rem;
-            }
-            
-            nav ul {
-                gap: 1rem;
-                margin-bottom: 1rem;
-            }
-            
-            .hero {
-                flex-direction: column;
-                text-align: center;
-                padding-top: 120px;
-            }
-            
-            .hero-content {
-                max-width: 100%;
-            }
-            
-            .hero-buttons {
-                justify-content: center;
-            }
-            
-            .hero-visual {
-                position: relative;
-                right: auto;
-                top: auto;
-                transform: none;
-                width: 100%;
-                height: 300px;
-                margin-top: 2rem;
-            }
-            
-            .section-title {
-                font-size: 2rem;
-            }
-        }
-
-        @media (max-width: 576px) {
-            .hero h1 {
-                font-size: 2.2rem;
-            }
-            
-            .hero-buttons {
-                flex-direction: column;
-                align-items: center;
-            }
-            
-            .programs-grid {
-                grid-template-columns: 1fr;
-            }
-        }
-    </style>
 </head>
 <body>
     <!-- Header -->
-    <header>
-        <div class="logo">
-            <div class="logo-icon"><i class="fas fa-graduation-cap"></i></div>
-            <div class="logo-text">UNIPOD</div>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">
+                <i class="fas fa-graduation-cap me-2"></i>UNIPOD
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav me-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#labs">Laboratoires et Équipements</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#schedule">Contenu du Cours</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#students">Étudiants</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#about">À Propos</a>
+                    </li>
+                </ul>
+                <button class="btn btn-primary">Rejoindre le Programme</button>
+            </div>
         </div>
-        <nav>
-            <ul>
-                <li><a href="#">Accueil</a></li>
-                <li><a href="#">Programmes</a></li>
-                <li><a href="#">À propos</a></li>
-                <li><a href="#">Ressources</a></li>
-                <li><a href="#">Contact</a></li>
-            </ul>
-        </nav>
-        <button class="cta-button">S'inscrire maintenant</button>
-    </header>
+    </nav>
 
     <!-- Hero Section -->
-    <section class="hero">
-        <div class="hero-content">
-            <h1>Façonnez votre avenir avec <span>UNIPOD Formation</span></h1>
-            <p>Découvrez l'éducation de nouvelle génération avec nos programmes de formation immersifs conçus pour les carrières de demain. Rejoignez des milliers d'apprenants qui transforment leur avenir dès aujourd'hui.</p>
-            <div class="hero-buttons">
-                <button class="cta-button">Explorer les programmes</button>
-                <button class="outline-button">Voir la démo</button>
-            </div>
-        </div>
-        <div class="hero-visual">
-            <div class="floating-element"></div>
-            <div class="floating-element"></div>
-            <div class="floating-element"></div>
-        </div>
-    </section>
+    <section class="bg-dark text-light py-5 min-vh-100 d-flex align-items-center">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6">
+                    <h1 class="display-4 fw-bold mb-4">Autonomiser l'Avenir de l'Afrique avec la <span class="text-primary">Formation UNIPOD</span></h1>
+                    <p class="lead mb-4">En partenariat avec Timbktu, le PNUD, FabLab Rwanda et UNIPODS, nous dispensons une éducation technologique de pointe à travers l'Afrique. Rejoignez notre mission pour développer les compétences numériques de la prochaine génération.</p>
 
-    <!-- Programs Section -->
-    <section class="programs">
-        <h2 class="section-title">Nos <span>Programmes de Formation</span></h2>
-        <div class="programs-grid">
-            <div class="program-card">
-                <div class="program-icon"><i class="fas fa-robot"></i></div>
-                <h3>IA & Apprentissage Automatique</h3>
-                <p>Maîtrisez les concepts fondamentaux et avancés de l'intelligence artificielle avec des projets pratiques et des applications réelles.</p>
-                <ul class="program-features">
-                    <li><i class="fas fa-check"></i> Programme intensif de 6 mois</li>
-                    <li><i class="fas fa-check"></i> Certification industrielle</li>
-                    <li><i class="fas fa-check"></i> Assistance au placement professionnel</li>
-                    <li><i class="fas fa-check"></i> Accès au laboratoire d'IA</li>
-                </ul>
-                <button class="outline-button">En savoir plus</button>
-            </div>
-            <div class="program-card">
-                <div class="program-icon"><i class="fas fa-code"></i></div>
-                <h3>Informatique Quantique</h3>
-                <p>Plongez dans le monde des algorithmes quantiques et du calcul avec une technologie de pointe et des instructeurs experts.</p>
-                <ul class="program-features">
-                    <li><i class="fas fa-check"></i> Programme spécialisé de 8 mois</li>
-                    <li><i class="fas fa-check"></i> Accès au matériel quantique</li>
-                    <li><i class="fas fa-check"></i> Opportunités de recherche</li>
-                    <li><i class="fas fa-check"></i> Partenariats industriels</li>
-                </ul>
-                <button class="outline-button">En savoir plus</button>
-            </div>
-            <div class="program-card">
-                <div class="program-icon"><i class="fas fa-vr-cardboard"></i></div>
-                <h3>Développement en Réalité Étendue</h3>
-                <p>Créez des expériences immersives avec les technologies AR, VR et MR. Construisez l'avenir de l'interaction numérique.</p>
-                <ul class="program-features">
-                    <li><i class="fas fa-check"></i> Programme créatif de 5 mois</li>
-                    <li><i class="fas fa-check"></i> Équipement de pointe</li>
-                    <li><i class="fas fa-check"></i> Développement de portfolio</li>
-                    <li><i class="fas fa-check"></i> Présentations industrielles</li>
-                </ul>
-                <button class="outline-button">En savoir plus</button>
+                    <div class="card bg-primary bg-opacity-10 border-primary mb-4">
+                        <div class="card-body d-flex align-items-center">
+                            <i class="fas fa-microchip fa-3x text-primary me-3"></i>
+                            <div>
+                                <h5 class="card-title">En Partenariat avec Timbktu, le PNUD, FabLab Rwanda et UNIPODS</h5>
+                                <p class="card-text">Leader de l'innovation et de la fabrication numérique en Afrique</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="d-flex gap-3">
+                        <button class="btn btn-primary btn-lg">Explorer les Programmes</button>
+                        <button class="btn btn-outline-primary btn-lg">Rencontrer nos Étudiants</button>
+                    </div>
+                </div>
+                <div class="col-lg-6 d-none d-lg-block">
+                    <!-- Placeholder for visual -->
+                    <div class="text-center">
+                        <i class="fas fa-cogs fa-10x text-primary opacity-25"></i>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
 
-    <!-- Features Section -->
-    <section class="features">
-        <h2 class="section-title">Pourquoi choisir <span>UNIPOD</span></h2>
-        <div class="features-grid">
-            <div class="feature-card">
-                <div class="feature-icon"><i class="fas fa-brain"></i></div>
-                <h3>Apprentissage Neural</h3>
-                <p>Notre technologie d'apprentissage adaptatif personnalise le contenu en fonction de vos schémas cognitifs pour une rétention optimale.</p>
+    <!-- Labs Section -->
+    <section id="labs" class="py-5">
+        <div class="container">
+            <h2 class="text-center display-4 mb-5">Notre formation se concentrera sur les <span class="text-primary">laboratoires et équipements</span> suivants</h2>
+            <div class="row g-4">
+                <div class="col-md-6 col-lg-4">
+                    <a href="labs/design-lab.html" class="text-decoration-none">
+                        <div class="card h-100 border-0 shadow">
+                            <div class="card-body text-center">
+                                <i class="fas fa-desktop fa-3x text-primary mb-3"></i>
+                                <h5 class="card-title">Laboratoire de Conception</h5>
+                                <p class="card-text">Ordinateurs pour la conception et la modélisation</p>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-md-6 col-lg-4">
+                    <a href="labs/rapid-prototyping-lab.html" class="text-decoration-none">
+                        <div class="card h-100 border-0 shadow">
+                            <div class="card-body text-center">
+                                <i class="fas fa-cube fa-3x text-primary mb-3"></i>
+                                <h5 class="card-title">Laboratoire de Prototypage Rapide</h5>
+                                <p class="card-text">Imprimantes 3D résine, imprimantes 3D FDM</p>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-md-6 col-lg-4">
+                    <a href="labs/laser-cutter.html" class="text-decoration-none">
+                        <div class="card h-100 border-0 shadow">
+                            <div class="card-body text-center">
+                                <i class="fas fa-cut fa-3x text-primary mb-3"></i>
+                                <h5 class="card-title">Découpeuse Laser</h5>
+                                <p class="card-text">Équipement de découpe de précision</p>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-md-6 col-lg-4">
+                    <a href="labs/vinyl-cutter.html" class="text-decoration-none">
+                        <div class="card h-100 border-0 shadow">
+                            <div class="card-body text-center">
+                                <i class="fas fa-scissors fa-3x text-primary mb-3"></i>
+                                <h5 class="card-title">Découpeuse Vinyle</h5>
+                                <p class="card-text">Machine de découpe de vinyle</p>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-md-6 col-lg-4">
+                    <a href="labs/vacuum-forming-machine.html" class="text-decoration-none">
+                        <div class="card h-100 border-0 shadow">
+                            <div class="card-body text-center">
+                                <i class="fas fa-wind fa-3x text-primary mb-3"></i>
+                                <h5 class="card-title">Machine de Thermoformage</h5>
+                                <p class="card-text">Équipement de moulage plastique</p>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-md-6 col-lg-4">
+                    <a href="labs/3d-scanner.html" class="text-decoration-none">
+                        <div class="card h-100 border-0 shadow">
+                            <div class="card-body text-center">
+                                <i class="fas fa-search fa-3x text-primary mb-3"></i>
+                                <h5 class="card-title">Scanner 3D</h5>
+                                <p class="card-text">Technologie de scan 3D</p>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-md-6 col-lg-4">
+                    <a href="labs/mechanical-lab.html" class="text-decoration-none">
+                        <div class="card h-100 border-0 shadow">
+                            <div class="card-body text-center">
+                                <i class="fas fa-cogs fa-3x text-primary mb-3"></i>
+                                <h5 class="card-title">Laboratoire Mécanique</h5>
+                                <p class="card-text">Plasma CNC, Machine de fraisage CNC, Machine de soudage (Mig, Stick, Laser), Machine de découpe métallique, Moulage par injection</p>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-md-6 col-lg-4">
+                    <a href="labs/woodworking-lab.html" class="text-decoration-none">
+                        <div class="card h-100 border-0 shadow">
+                            <div class="card-body text-center">
+                                <i class="fas fa-tree fa-3x text-primary mb-3"></i>
+                                <h5 class="card-title">Laboratoire de Menuiserie</h5>
+                                <p class="card-text">Machine CNC Router, Machine de découpe à scie ajustable</p>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-md-6 col-lg-4">
+                    <a href="labs/electrical-electronic-lab.html" class="text-decoration-none">
+                        <div class="card h-100 border-0 shadow">
+                            <div class="card-body text-center">
+                                <i class="fas fa-microchip fa-3x text-primary mb-3"></i>
+                                <h5 class="card-title">Laboratoire Électrique et Électronique</h5>
+                                <p class="card-text">Machines de fabrication de PCB, Machine de fraisage PCB CNC, Machine de soudure, Oscilloscope, Générateur de fonctions</p>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-md-6 col-lg-4">
+                    <a href="labs/textile-lab.html" class="text-decoration-none">
+                        <div class="card h-100 border-0 shadow">
+                            <div class="card-body text-center">
+                                <i class="fas fa-tshirt fa-3x text-primary mb-3"></i>
+                                <h5 class="card-title">Laboratoire Textile</h5>
+                                <p class="card-text">Machine à coudre, Machine de broderie, Machine de découpe de tissu</p>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-md-6 col-lg-4">
+                    <a href="labs/vr-lab.html" class="text-decoration-none">
+                        <div class="card h-100 border-0 shadow">
+                            <div class="card-body text-center">
+                                <i class="fas fa-vr-cardboard fa-3x text-primary mb-3"></i>
+                                <h5 class="card-title">Laboratoire VR</h5>
+                                <p class="card-text">PC de jeu, Casques VR</p>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-md-6 col-lg-4">
+                    <a href="labs/green-tech-lab.html" class="text-decoration-none">
+                        <div class="card h-100 border-0 shadow">
+                            <div class="card-body text-center">
+                                <i class="fas fa-leaf fa-3x text-primary mb-3"></i>
+                                <h5 class="card-title">Laboratoire Green Tech</h5>
+                                <p class="card-text">Équipement de réseau intelligent, Moteur hybride, Kit de formation solaire, Machine de broyage plastique, Kit de pile à combustible hydrogène</p>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-md-6 col-lg-4">
+                    <a href="labs/food-agritech-lab.html" class="text-decoration-none">
+                        <div class="card h-100 border-0 shadow">
+                            <div class="card-body text-center">
+                                <i class="fas fa-utensils fa-3x text-primary mb-3"></i>
+                                <h5 class="card-title">Laboratoire Alimentaire et Agritech</h5>
+                                <p class="card-text">Balance industrielle et four, Broyeur, Mélangeur, Extracteur de jus, Analyseur de nutriments du sol, Machine de presse à froid, Machine d'emballage</p>
+                            </div>
+                        </div>
+                    </a>
+                </div>
             </div>
-            <div class="feature-card">
-                <div class="feature-icon"><i class="fas fa-globe"></i></div>
-                <h3>Réseau Mondial</h3>
-                <p>Connectez-vous avec des apprenants et des experts industriels du monde entier dans notre campus virtuel immersif.</p>
+        </div>
+    </section>
+
+    <!-- Students Section -->
+    <section id="students" class="py-5 bg-light">
+        <div class="container">
+            <h2 class="text-center display-4 mb-5">Nos <span class="text-primary">Étudiants</span></h2>
+            <div class="row g-3">
+                <div class="col-lg-2 col-md-4 col-sm-6">
+                    <div class="card h-100 border-0 shadow-sm text-center">
+                        <div class="card-body">
+                            <h6 class="card-title">Amina Mbeki</h6>
+                            <p class="text-muted small mb-2">Kigali UNIPOD</p>
+                            <div class="d-flex justify-content-center gap-2">
+                                <a href="#" class="text-decoration-none"><i class="fab fa-github"></i></a>
+                                <a href="#" class="text-decoration-none"><i class="fas fa-globe"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-2 col-md-4 col-sm-6">
+                    <div class="card h-100 border-0 shadow-sm text-center">
+                        <div class="card-body">
+                            <h6 class="card-title">Kwame Osei</h6>
+                            <p class="text-muted small mb-2">Nairobi UNIPOD</p>
+                            <div class="d-flex justify-content-center gap-2">
+                                <a href="#" class="text-decoration-none"><i class="fab fa-github"></i></a>
+                                <a href="#" class="text-decoration-none"><i class="fas fa-globe"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-2 col-md-4 col-sm-6">
+                    <div class="card h-100 border-0 shadow-sm text-center">
+                        <div class="card-body">
+                            <h6 class="card-title">Fatima Nkosi</h6>
+                            <p class="text-muted small mb-2">Lagos UNIPOD</p>
+                            <div class="d-flex justify-content-center gap-2">
+                                <a href="#" class="text-decoration-none"><i class="fab fa-github"></i></a>
+                                <a href="#" class="text-decoration-none"><i class="fas fa-globe"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-2 col-md-4 col-sm-6">
+                    <div class="card h-100 border-0 shadow-sm text-center">
+                        <div class="card-body">
+                            <h6 class="card-title">Jabari Mensah</h6>
+                            <p class="text-muted small mb-2">Cape Town UNIPOD</p>
+                            <div class="d-flex justify-content-center gap-2">
+                                <a href="#" class="text-decoration-none"><i class="fab fa-github"></i></a>
+                                <a href="#" class="text-decoration-none"><i class="fas fa-globe"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-2 col-md-4 col-sm-6">
+                    <div class="card h-100 border-0 shadow-sm text-center">
+                        <div class="card-body">
+                            <h6 class="card-title">Zara Ahmed</h6>
+                            <p class="text-muted small mb-2">Kigali UNIPOD</p>
+                            <div class="d-flex justify-content-center gap-2">
+                                <a href="#" class="text-decoration-none"><i class="fab fa-github"></i></a>
+                                <a href="#" class="text-decoration-none"><i class="fas fa-globe"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-2 col-md-4 col-sm-6">
+                    <div class="card h-100 border-0 shadow-sm text-center">
+                        <div class="card-body">
+                            <h6 class="card-title">Emmanuel Nwosu</h6>
+                            <p class="text-muted small mb-2">Lagos UNIPOD</p>
+                            <div class="d-flex justify-content-center gap-2">
+                                <a href="#" class="text-decoration-none"><i class="fab fa-github"></i></a>
+                                <a href="#" class="text-decoration-none"><i class="fas fa-globe"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-2 col-md-4 col-sm-6">
+                    <div class="card h-100 border-0 shadow-sm text-center">
+                        <div class="card-body">
+                            <h6 class="card-title">Grace Wanjiku</h6>
+                            <p class="text-muted small mb-2">Nairobi UNIPOD</p>
+                            <div class="d-flex justify-content-center gap-2">
+                                <a href="#" class="text-decoration-none"><i class="fab fa-github"></i></a>
+                                <a href="#" class="text-decoration-none"><i class="fas fa-globe"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-2 col-md-4 col-sm-6">
+                    <div class="card h-100 border-0 shadow-sm text-center">
+                        <div class="card-body">
+                            <h6 class="card-title">Thabo Molefe</h6>
+                            <p class="text-muted small mb-2">Cape Town UNIPOD</p>
+                            <div class="d-flex justify-content-center gap-2">
+                                <a href="#" class="text-decoration-none"><i class="fab fa-github"></i></a>
+                                <a href="#" class="text-decoration-none"><i class="fas fa-globe"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-2 col-md-4 col-sm-6">
+                    <div class="card h-100 border-0 shadow-sm text-center">
+                        <div class="card-body">
+                            <h6 class="card-title">Nomsa Zulu</h6>
+                            <p class="text-muted small mb-2">Cape Town UNIPOD</p>
+                            <div class="d-flex justify-content-center gap-2">
+                                <a href="#" class="text-decoration-none"><i class="fab fa-github"></i></a>
+                                <a href="#" class="text-decoration-none"><i class="fas fa-globe"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-2 col-md-4 col-sm-6">
+                    <div class="card h-100 border-0 shadow-sm text-center">
+                        <div class="card-body">
+                            <h6 class="card-title">Kofi Asante</h6>
+                            <p class="text-muted small mb-2">Accra UNIPOD</p>
+                            <div class="d-flex justify-content-center gap-2">
+                                <a href="#" class="text-decoration-none"><i class="fab fa-github"></i></a>
+                                <a href="#" class="text-decoration-none"><i class="fas fa-globe"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-2 col-md-4 col-sm-6">
+                    <div class="card h-100 border-0 shadow-sm text-center">
+                        <div class="card-body">
+                            <h6 class="card-title">Amara Okafor</h6>
+                            <p class="text-muted small mb-2">Lagos UNIPOD</p>
+                            <div class="d-flex justify-content-center gap-2">
+                                <a href="#" class="text-decoration-none"><i class="fab fa-github"></i></a>
+                                <a href="#" class="text-decoration-none"><i class="fas fa-globe"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-2 col-md-4 col-sm-6">
+                    <div class="card h-100 border-0 shadow-sm text-center">
+                        <div class="card-body">
+                            <h6 class="card-title">Simba Ndlovu</h6>
+                            <p class="text-muted small mb-2">Harare UNIPOD</p>
+                            <div class="d-flex justify-content-center gap-2">
+                                <a href="#" class="text-decoration-none"><i class="fab fa-github"></i></a>
+                                <a href="#" class="text-decoration-none"><i class="fas fa-globe"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-2 col-md-4 col-sm-6">
+                    <div class="card h-100 border-0 shadow-sm text-center">
+                        <div class="card-body">
+                            <h6 class="card-title">Lila Hassan</h6>
+                            <p class="text-muted small mb-2">Dar es Salaam UNIPOD</p>
+                            <div class="d-flex justify-content-center gap-2">
+                                <a href="#" class="text-decoration-none"><i class="fab fa-github"></i></a>
+                                <a href="#" class="text-decoration-none"><i class="fas fa-globe"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-2 col-md-4 col-sm-6">
+                    <div class="card h-100 border-0 shadow-sm text-center">
+                        <div class="card-body">
+                            <h6 class="card-title">Jelani Kamau</h6>
+                            <p class="text-muted small mb-2">Nairobi UNIPOD</p>
+                            <div class="d-flex justify-content-center gap-2">
+                                <a href="#" class="text-decoration-none"><i class="fab fa-github"></i></a>
+                                <a href="#" class="text-decoration-none"><i class="fas fa-globe"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-2 col-md-4 col-sm-6">
+                    <div class="card h-100 border-0 shadow-sm text-center">
+                        <div class="card-body">
+                            <h6 class="card-title">Zola Mthembu</h6>
+                            <p class="text-muted small mb-2">Durban UNIPOD</p>
+                            <div class="d-flex justify-content-center gap-2">
+                                <a href="#" class="text-decoration-none"><i class="fab fa-github"></i></a>
+                                <a href="#" class="text-decoration-none"><i class="fas fa-globe"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-2 col-md-4 col-sm-6">
+                    <div class="card h-100 border-0 shadow-sm text-center">
+                        <div class="card-body">
+                            <h6 class="card-title">Tariq El-Masri</h6>
+                            <p class="text-muted small mb-2">Cairo UNIPOD</p>
+                            <div class="d-flex justify-content-center gap-2">
+                                <a href="#" class="text-decoration-none"><i class="fab fa-github"></i></a>
+                                <a href="#" class="text-decoration-none"><i class="fas fa-globe"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
-            <div class="feature-card">
-                <div class="feature-icon"><i class="fas fa-rocket"></i></div>
-                <h3>Compétences Future-Ready</h3>
-                <p>Notre programme est continuellement mis à jour pour correspondre aux exigences évolutives du marché du travail futur.</p>
-            </div>
-            <div class="feature-card">
-                <div class="feature-icon"><i class="fas fa-hands-helping"></i></div>
-                <h3>Accélération de Carrière</h3>
-                <p>Bénéficiez d'un accompagnement personnalisé et d'un accès à des opportunités exclusives avec nos organisations partenaires.</p>
+        </div>
+    </section>
+
+    <!-- Schedule Section -->
+    <section id="schedule" class="py-5 bg-light">
+        <div class="container">
+            <h2 class="text-center display-4 mb-5">Contenu du <span class="text-primary">Cours</span></h2>
+            <div class="row g-3">
+                <div class="col-lg-2 col-md-4 col-sm-6">
+                    <a href="course-content/version-control.html" class="text-decoration-none">
+                        <div class="card h-100 border-0 shadow-sm">
+                            <div class="card-body text-center">
+                                <h6 class="card-title">Contrôle de Version</h6>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-lg-2 col-md-4 col-sm-6">
+                    <a href="course-content/computer-aided-design.html" class="text-decoration-none">
+                        <div class="card h-100 border-0 shadow-sm">
+                            <div class="card-body text-center">
+                                <h6 class="card-title">Conception Assistée par Ordinateur</h6>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-lg-2 col-md-4 col-sm-6">
+                    <a href="course-content/computer-controlled-cutting.html" class="text-decoration-none">
+                        <div class="card h-100 border-0 shadow-sm">
+                            <div class="card-body text-center">
+                                <h6 class="card-title">Découpe Contrôlée par Ordinateur</h6>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-lg-2 col-md-4 col-sm-6">
+                    <a href="course-content/embedded-programming.html" class="text-decoration-none">
+                        <div class="card h-100 border-0 shadow-sm">
+                            <div class="card-body text-center">
+                                <h6 class="card-title">Programmation Embarquée</h6>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-lg-2 col-md-4 col-sm-6">
+                    <a href="course-content/3d-scanning-printing.html" class="text-decoration-none">
+                        <div class="card h-100 border-0 shadow-sm">
+                            <div class="card-body text-center">
+                                <h6 class="card-title">Scan et Impression 3D</h6>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-lg-2 col-md-4 col-sm-6">
+                    <a href="course-content/electronics-design.html" class="text-decoration-none">
+                        <div class="card h-100 border-0 shadow-sm">
+                            <div class="card-body text-center">
+                                <h6 class="card-title">Conception Électronique</h6>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-lg-2 col-md-4 col-sm-6">
+                    <a href="course-content/computer-controlled-machining.html" class="text-decoration-none">
+                        <div class="card h-100 border-0 shadow-sm">
+                            <div class="card-body text-center">
+                                <h6 class="card-title">Usinage Contrôlé par Ordinateur</h6>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-lg-2 col-md-4 col-sm-6">
+                    <a href="course-content/electronics-production.html" class="text-decoration-none">
+                        <div class="card h-100 border-0 shadow-sm">
+                            <div class="card-body text-center">
+                                <h6 class="card-title">Production Électronique</h6>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-lg-2 col-md-4 col-sm-6">
+                    <a href="course-content/input-devices.html" class="text-decoration-none">
+                        <div class="card h-100 border-0 shadow-sm">
+                            <div class="card-body text-center">
+                                <h6 class="card-title">Dispositifs d'Entrée</h6>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-lg-2 col-md-4 col-sm-6">
+                    <a href="course-content/output-devices.html" class="text-decoration-none">
+                        <div class="card h-100 border-0 shadow-sm">
+                            <div class="card-body text-center">
+                                <h6 class="card-title">Dispositifs de Sortie</h6>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-lg-2 col-md-4 col-sm-6">
+                    <a href="course-content/networking-communications.html" class="text-decoration-none">
+                        <div class="card h-100 border-0 shadow-sm">
+                            <div class="card-body text-center">
+                                <h6 class="card-title">Réseau et Communications</h6>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-lg-2 col-md-4 col-sm-6">
+                    <a href="course-content/molding-casting.html" class="text-decoration-none">
+                        <div class="card h-100 border-0 shadow-sm">
+                            <div class="card-body text-center">
+                                <h6 class="card-title">Moulage et Coulée</h6>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-lg-2 col-md-4 col-sm-6">
+                    <a href="course-content/interface-application-programming.html" class="text-decoration-none">
+                        <div class="card h-100 border-0 shadow-sm">
+                            <div class="card-body text-center">
+                                <h6 class="card-title">Programmation d'Interface et d'Application</h6>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-lg-2 col-md-4 col-sm-6">
+                    <a href="course-content/system-integration.html" class="text-decoration-none">
+                        <div class="card h-100 border-0 shadow-sm">
+                            <div class="card-body text-center">
+                                <h6 class="card-title">Intégration Système</h6>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-lg-2 col-md-4 col-sm-6">
+                    <a href="course-content/wildcard-week.html" class="text-decoration-none">
+                        <div class="card h-100 border-0 shadow-sm">
+                            <div class="card-body text-center">
+                                <h6 class="card-title">Semaine Joker</h6>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-lg-2 col-md-4 col-sm-6">
+                    <a href="course-content/invention-ip-income.html" class="text-decoration-none">
+                        <div class="card h-100 border-0 shadow-sm">
+                            <div class="card-body text-center">
+                                <h6 class="card-title">Invention, Propriété Intellectuelle et Revenus</h6>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-lg-2 col-md-4 col-sm-6">
+                    <a href="course-content/final-project-presentations.html" class="text-decoration-none">
+                        <div class="card h-100 border-0 shadow-sm">
+                            <div class="card-body text-center">
+                                <h6 class="card-title">Présentations du Projet Final</h6>
+                            </div>
+                        </div>
+                    </a>
+                </div>
             </div>
         </div>
     </section>
 
     <!-- CTA Section -->
-    <section class="cta-section">
-        <h2>Prêt à lancer votre avenir ?</h2>
-        <p>Rejoignez UNIPOD dès aujourd'hui et accédez à des programmes de formation de pointe qui vous prépareront aux carrières de demain.</p>
-        <button class="cta-button">Commencer votre voyage</button>
+    <section class="py-5 bg-primary text-white text-center">
+        <div class="container">
+            <h2 class="display-4 mb-3">Prêt à Transformer l'Avenir Technologique de l'Afrique ?</h2>
+            <p class="lead mb-4">Rejoignez la Formation UNIPOD aujourd'hui et faites partie du mouvement pour développer les compétences numériques à travers le continent.</p>
+            <a href="https://forms.gle/aVF7mqV1YphGsWAbA" class="btn btn-light btn-lg" target="_blank">Postuler Maintenant</a>
+        </div>
     </section>
 
     <!-- Footer -->
-    <footer>
-        <div class="footer-content">
-            <div class="footer-column">
-                <h3>UNIPOD Formation</h3>
-                <p>Transformer l'éducation grâce à une technologie innovante et un programme axé sur l'avenir.</p>
-                <div class="social-icons">
-                    <a href="#"><i class="fab fa-facebook-f"></i></a>
-                    <a href="#"><i class="fab fa-twitter"></i></a>
-                    <a href="#"><i class="fab fa-linkedin-in"></i></a>
-                    <a href="#"><i class="fab fa-instagram"></i></a>
+    <footer class="bg-dark text-light py-5">
+        <div class="container">
+            <div class="row g-4">
+                <div class="col-md-6">
+                    <h5>Formation UNIPOD</h5>
+                    <p>Autonomiser la prochaine génération d'innovateurs technologiques africains grâce à une éducation de qualité.</p>
+                    <div class="d-flex gap-2">
+                        <a href="#" class="text-light"><i class="fab fa-twitter fa-lg"></i></a>
+                        <a href="#" class="text-light"><i class="fab fa-linkedin-in fa-lg"></i></a>
+                        <a href="#" class="text-light"><i class="fab fa-instagram fa-lg"></i></a>
+                        <a href="#" class="text-light"><i class="fab fa-youtube fa-lg"></i></a>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <h5>Informations de Contact</h5>
+                    <ul class="list-unstyled">
+                        <li><i class="fas fa-map-marker-alt me-2"></i> 44 KG 548 St, Kigali</li>
+                        <li><i class="fas fa-phone me-2"></i> +250-789-276-080</li>
+                        <li><i class="fas fa-envelope me-2"></i> info@fablab.rw</li>
+                    </ul>
                 </div>
             </div>
-            <div class="footer-column">
-                <h3>Programmes</h3>
-                <ul>
-                    <li><a href="#">IA & Apprentissage Automatique</a></li>
-                    <li><a href="#">Informatique Quantique</a></li>
-                    <li><a href="#">Réalité Étendue</a></li>
-                    <li><a href="#">Biotechnologie</a></li>
-                    <li><a href="#">Technologie Spatiale</a></li>
-                </ul>
+            <hr class="my-4">
+            <div class="text-center">
+                <p class="mb-0">&copy; 2023 Formation UNIPOD. Tous droits réservés. | En partenariat avec Timbktu, le PNUD, FabLab Rwanda et UNIPODS</p>
             </div>
-            <div class="footer-column">
-                <h3>Ressources</h3>
-                <ul>
-                    <li><a href="#">Centre d'Apprentissage</a></li>
-                    <li><a href="#">Documents de Recherche</a></li>
-                    <li><a href="#">Portail Carrière</a></li>
-                    <li><a href="#">Réussite des Étudiants</a></li>
-                    <li><a href="#">Blog</a></li>
-                </ul>
-            </div>
-            <div class="footer-column">
-                <h3>Contact</h3>
-                <ul>
-                    <li><i class="fas fa-map-marker-alt"></i> Campus Tech Futur, Neo City</li>
-                    <li><i class="fas fa-phone"></i> +33 1 23 45 67 89</li>
-                    <li><i class="fas fa-envelope"></i> info@unipod.formation</li>
-                </ul>
-            </div>
-        </div>
-        <div class="copyright">
-            <p>&copy; 2023 UNIPOD Formation. Tous droits réservés. | Conçu pour l'Avenir</p>
         </div>
     </footer>
 
@@ -672,9 +650,18 @@
                 observer.observe(card);
             });
 
-            // Animate feature cards on scroll
-            const featureCards = document.querySelectorAll('.feature-card');
-            featureCards.forEach(card => {
+            // Animate UNIPOD cards on scroll
+            const unipodCards = document.querySelectorAll('.unipod-card');
+            unipodCards.forEach(card => {
+                card.style.opacity = 0;
+                card.style.transform = 'translateY(20px)';
+                card.style.transition = 'opacity 0.5s, transform 0.5s';
+                observer.observe(card);
+            });
+
+            // Animate student cards on scroll
+            const studentCards = document.querySelectorAll('.student-card');
+            studentCards.forEach(card => {
                 card.style.opacity = 0;
                 card.style.transform = 'translateY(20px)';
                 card.style.transition = 'opacity 0.5s, transform 0.5s';
@@ -692,7 +679,22 @@
                     header.style.boxShadow = 'none';
                 }
             });
+
+            // Smooth scrolling for navigation links
+            document.querySelectorAll('nav a').forEach(anchor => {
+                anchor.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const targetId = this.getAttribute('href');
+                    const targetElement = document.querySelector(targetId);
+                    
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                });
+            });
         });
     </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
