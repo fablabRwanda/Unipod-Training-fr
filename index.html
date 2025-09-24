@@ -3,16 +3,107 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" href="favicon.png">
     <title>Formation UNIPOD | Partenariat FabLab Rwanda</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        .hero-section {
+            position: relative;
+            min-height: 100vh;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            background: #1a1a1a;
+        }
+        
+        .slideshow {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+        }
+        
+        .slide {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            opacity: 0;
+            transition: opacity 1.5s ease-in-out;
+            animation: slideShow 18s infinite;
+        }
+        
+        .slide:nth-child(1) {
+            background-image: url('images/slide/1.jpg');
+            animation-delay: 0s;
+        }
+        
+        .slide:nth-child(2) {
+            background-image: url('images/slide/2.jpg');
+            animation-delay: 6s;
+        }
+        
+        .slide:nth-child(3) {
+            background-image: url('images/slide/3.jpg');
+            animation-delay: 12s;
+        }
+        
+        @keyframes slideShow {
+            0% {
+                opacity: 0;
+                transform: scale(1.05);
+            }
+            10% {
+                opacity: 1;
+                transform: scale(1);
+            }
+            30% {
+                opacity: 1;
+            }
+            40% {
+                opacity: 0;
+            }
+            100% {
+                opacity: 0;
+            }
+        }
+        
+        .overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to right, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.5));
+            z-index: 2;
+        }
+        
+        .hero-content {
+            position: relative;
+            z-index: 3;
+            color: rgb(255, 255, 255);
+        }
+        
+        .btn-outline-light:hover {
+            color: #000 !important;
+        }
+    </style>
 </head>
 <body>
     <!-- Header -->
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
         <div class="container-fluid">
             <a class="navbar-brand" href="#">
-                <i class="fas fa-graduation-cap me-2"></i>UNIPOD
+                <img src="images/fablab_whitev.png" alt="FAB Lab Logo" style="height: 40px;">
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -20,7 +111,7 @@
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav me-auto">
                     <li class="nav-item">
-                        <a class="nav-link" href="#labs">Laboratoires et Équipements</a>
+                        <a class="nav-link" href="#labs">Atelier et Équipements</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#schedule">Contenu du Cours</a>
@@ -29,41 +120,39 @@
                         <a class="nav-link" href="#students">Étudiants</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#about">À Propos</a>
+                        <a class="nav-link" href="#partners">Partenaires</a>
                     </li>
                 </ul>
-                <button class="btn btn-primary">Rejoindre le Programme</button>
+                <button id="joinProgramBtn" class="btn btn-primary" onclick="window.open('https://forms.gle/aVF7mqV1YphGsWAbA', '_blank')">
+                    Rejoindre le Programme
+                </button>
             </div>
         </div>
     </nav>
 
     <!-- Hero Section -->
-    <section class="bg-dark text-light py-5 min-vh-100 d-flex align-items-center">
-        <div class="container">
+    <section class="hero-section text-light py-5">
+        <div class="slideshow">
+            <div class="slide"></div>
+            <div class="slide"></div>
+            <div class="slide"></div>
+        </div>
+        <div class="overlay"></div>
+        <div class="container hero-content">
             <div class="row">
                 <div class="col-lg-6">
-                    <h1 class="display-4 fw-bold mb-4">Autonomiser l'Avenir de l'Afrique avec la <span class="text-primary">Formation UNIPOD</span></h1>
-                    <p class="lead mb-4">En partenariat avec Timbktu, le PNUD, FabLab Rwanda et UNIPODS, nous dispensons une éducation technologique de pointe à travers l'Afrique. Rejoignez notre mission pour développer les compétences numériques de la prochaine génération.</p>
+                    <h1 class="display-4 fw-bold mb-4">Renforcer l'avenir de l'Afrique grâce à <span class="text-primary">Programme de fabrication numérique UNIPOD</span></h1>
+                    <p class="lead mb-4">En partenariat avec Timbuktoo, le PNUD, le FabLab Rwanda et l'UNIPODS, nous dispensons une formation technologique de pointe dans toute l'Afrique. Rejoignez notre mission de développer des compétences numériques pour la prochaine génération.</p>
 
-                    <div class="card bg-primary bg-opacity-10 border-primary mb-4">
-                        <div class="card-body d-flex align-items-center">
-                            <i class="fas fa-microchip fa-3x text-primary me-3"></i>
-                            <div>
-                                <h5 class="card-title">En Partenariat avec Timbktu, le PNUD, FabLab Rwanda et UNIPODS</h5>
-                                <p class="card-text">Leader de l'innovation et de la fabrication numérique en Afrique</p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="d-flex gap-3">
-                        <button class="btn btn-primary btn-lg">Explorer les Programmes</button>
-                        <button class="btn btn-outline-primary btn-lg">Rencontrer nos Étudiants</button>
+                    <div class="d-flex gap-3 flex-wrap">
+                        <a href="#schedule"><button class="btn btn-primary btn-lg">Explorer les programmes</button></a>
+                        <a href="#students"><button class="btn btn-outline-light btn-lg">Rencontrez nos étudiants</button></a>
                     </div>
                 </div>
-                <div class="col-lg-6 d-none d-lg-block">
+                <div class="col-lg-6 d-none d-lg-flex align-items-center justify-content-center">
                     <!-- Placeholder for visual -->
                     <div class="text-center">
-                        <i class="fas fa-cogs fa-10x text-primary opacity-25"></i>
+                        <i class="fas fa-cogs fa-10x text-primary opacity-50"></i>
                     </div>
                 </div>
             </div>
@@ -73,14 +162,14 @@
     <!-- Labs Section -->
     <section id="labs" class="py-5">
         <div class="container">
-            <h2 class="text-center display-4 mb-5">Notre formation se concentrera sur les <span class="text-primary">laboratoires et équipements</span> suivants</h2>
+            <h2 class="text-center display-4 mb-5"><span class="text-primary"> Atelier &amp; Équipement </span> Objectif de la formation</h2>
             <div class="row g-4">
                 <div class="col-md-6 col-lg-4">
                     <a href="labs/design-lab.html" class="text-decoration-none">
                         <div class="card h-100 border-0 shadow">
                             <div class="card-body text-center">
                                 <i class="fas fa-desktop fa-3x text-primary mb-3"></i>
-                                <h5 class="card-title">Laboratoire de Conception</h5>
+                                <h5 class="card-title">Atelier de design</h5>
                                 <p class="card-text">Ordinateurs pour la conception et la modélisation</p>
                             </div>
                         </div>
@@ -91,7 +180,7 @@
                         <div class="card h-100 border-0 shadow">
                             <div class="card-body text-center">
                                 <i class="fas fa-cube fa-3x text-primary mb-3"></i>
-                                <h5 class="card-title">Laboratoire de Prototypage Rapide</h5>
+                                <h5 class="card-title">Atelier de prototypage rapide</h5>
                                 <p class="card-text">Imprimantes 3D résine, imprimantes 3D FDM</p>
                             </div>
                         </div>
@@ -102,8 +191,8 @@
                         <div class="card h-100 border-0 shadow">
                             <div class="card-body text-center">
                                 <i class="fas fa-cut fa-3x text-primary mb-3"></i>
-                                <h5 class="card-title">Découpeuse Laser</h5>
-                                <p class="card-text">Équipement de découpe de précision</p>
+                                <h5 class="card-title">Découpeuse a laser</h5>
+                                <p class="card-text">Équipement de coupe de précision</p>
                             </div>
                         </div>
                     </a>
@@ -113,7 +202,7 @@
                         <div class="card h-100 border-0 shadow">
                             <div class="card-body text-center">
                                 <i class="fas fa-scissors fa-3x text-primary mb-3"></i>
-                                <h5 class="card-title">Découpeuse Vinyle</h5>
+                                <h5 class="card-title">Découpeur de vinyle</h5>
                                 <p class="card-text">Machine de découpe de vinyle</p>
                             </div>
                         </div>
@@ -124,8 +213,8 @@
                         <div class="card h-100 border-0 shadow">
                             <div class="card-body text-center">
                                 <i class="fas fa-wind fa-3x text-primary mb-3"></i>
-                                <h5 class="card-title">Machine de Thermoformage</h5>
-                                <p class="card-text">Équipement de moulage plastique</p>
+                                <h5 class="card-title">Machine de formage sous vide</h5>
+                                <p class="card-text">Équipement de moulage de plastique</p>
                             </div>
                         </div>
                     </a>
@@ -136,7 +225,7 @@
                             <div class="card-body text-center">
                                 <i class="fas fa-search fa-3x text-primary mb-3"></i>
                                 <h5 class="card-title">Scanner 3D</h5>
-                                <p class="card-text">Technologie de scan 3D</p>
+                                <p class="card-text">Technologie de numérisation 3D</p>
                             </div>
                         </div>
                     </a>
@@ -146,8 +235,8 @@
                         <div class="card h-100 border-0 shadow">
                             <div class="card-body text-center">
                                 <i class="fas fa-cogs fa-3x text-primary mb-3"></i>
-                                <h5 class="card-title">Laboratoire Mécanique</h5>
-                                <p class="card-text">Plasma CNC, Machine de fraisage CNC, Machine de soudage (Mig, Stick, Laser), Machine de découpe métallique, Moulage par injection</p>
+                                <h5 class="card-title">Atelier mécanique</h5>
+                                <p class="card-text">Plasma CNC, Fraiseuse CNC, Machine à souder (Mig, Bâton, Laser), Machine à tronçonner le métal, Moulage par injection</p>
                             </div>
                         </div>
                     </a>
@@ -157,8 +246,8 @@
                         <div class="card h-100 border-0 shadow">
                             <div class="card-body text-center">
                                 <i class="fas fa-tree fa-3x text-primary mb-3"></i>
-                                <h5 class="card-title">Laboratoire de Menuiserie</h5>
-                                <p class="card-text">Machine CNC Router, Machine de découpe à scie ajustable</p>
+                                <h5 class="card-title">Atelier de menuiserie</h5>
+                                <p class="card-text">Machine de routeur CNC, scie coupeuse réglable</p>
                             </div>
                         </div>
                     </a>
@@ -168,8 +257,8 @@
                         <div class="card h-100 border-0 shadow">
                             <div class="card-body text-center">
                                 <i class="fas fa-microchip fa-3x text-primary mb-3"></i>
-                                <h5 class="card-title">Laboratoire Électrique et Électronique</h5>
-                                <p class="card-text">Machines de fabrication de PCB, Machine de fraisage PCB CNC, Machine de soudure, Oscilloscope, Générateur de fonctions</p>
+                                <h5 class="card-title">Atelier électrique et électronique</h5>
+                                <p class="card-text">Machines de fabrication de PCB, Fraiseuse de PCB CNC, Machine à souder, Machine d'oscilloscope, Générateur de fonctions</p>
                             </div>
                         </div>
                     </a>
@@ -179,8 +268,8 @@
                         <div class="card h-100 border-0 shadow">
                             <div class="card-body text-center">
                                 <i class="fas fa-tshirt fa-3x text-primary mb-3"></i>
-                                <h5 class="card-title">Laboratoire Textile</h5>
-                                <p class="card-text">Machine à coudre, Machine de broderie, Machine de découpe de tissu</p>
+                                <h5 class="card-title">Atelier textile</h5>
+                                <p class="card-text">Machine à coudre, Machine à broder, Machine à couper le tissu</p>
                             </div>
                         </div>
                     </a>
@@ -190,8 +279,8 @@
                         <div class="card h-100 border-0 shadow">
                             <div class="card-body text-center">
                                 <i class="fas fa-vr-cardboard fa-3x text-primary mb-3"></i>
-                                <h5 class="card-title">Laboratoire VR</h5>
-                                <p class="card-text">PC de jeu, Casques VR</p>
+                                <h5 class="card-title">Atelier VR</h5>
+                                <p class="card-text">PC de jeu, casques VR</p>
                             </div>
                         </div>
                     </a>
@@ -201,8 +290,8 @@
                         <div class="card h-100 border-0 shadow">
                             <div class="card-body text-center">
                                 <i class="fas fa-leaf fa-3x text-primary mb-3"></i>
-                                <h5 class="card-title">Laboratoire Green Tech</h5>
-                                <p class="card-text">Équipement de réseau intelligent, Moteur hybride, Kit de formation solaire, Machine de broyage plastique, Kit de pile à combustible hydrogène</p>
+                                <h5 class="card-title">Atelier technologie vert</h5>
+                                <p class="card-text">Équipement de réseau intelligent, Moteur hybride, Kit de formation solaire, Déchiqueteuse de plastique, Kit de pile à combustible à hydrogène</p>
                             </div>
                         </div>
                     </a>
@@ -212,8 +301,8 @@
                         <div class="card h-100 border-0 shadow">
                             <div class="card-body text-center">
                                 <i class="fas fa-utensils fa-3x text-primary mb-3"></i>
-                                <h5 class="card-title">Laboratoire Alimentaire et Agritech</h5>
-                                <p class="card-text">Balance industrielle et four, Broyeur, Mélangeur, Extracteur de jus, Analyseur de nutriments du sol, Machine de presse à froid, Machine d'emballage</p>
+                                <h5 class="card-title">Atelier alimentaire et agritech</h5>
+                                <p class="card-text">Balance industrielle et four, Broyeur, Mélangeur, Presse-agrumes, Analyseur de nutriments du sol, Machine de presse à froid, Machine d'emballage</p>
                             </div>
                         </div>
                     </a>
@@ -585,11 +674,35 @@
         </div>
     </section>
 
+    <!-- Partners Section -->
+    <section id="partners" class="py-5">
+        <div class="container">
+            <h2 class="text-center display-4 mb-5">En <span class="text-primary">collaboration </span>avec</h2>
+            <div class="row g-4 justify-content-center align-items-center">
+            
+                <!-- Partner 1 -->
+                <div class="col-md-6 col-lg-3 text-center">
+                    <img src="images/undp logo.png" alt="UNDP" class="img-fluid" style="max-height: 200px;">
+                </div>
+
+                <!-- Partner 2 -->
+                <div class="col-md-6 col-lg-3 text-center">
+                    <img src="images/timbkutoo.png" alt="Timbuktoo" class="img-fluid" style="max-height: 200px;">
+                </div>
+
+                <!-- Partner 3 -->
+                <div class="col-md-6 col-lg-3 text-center">
+                    <img src="images/unipod.png" alt="UNIPOD" class="img-fluid" style="max-height: 100px;">
+                </div>                
+            </div>
+        </div>
+    </section>
+
     <!-- CTA Section -->
     <section class="py-5 bg-primary text-white text-center">
         <div class="container">
             <h2 class="display-4 mb-3">Prêt à Transformer l'Avenir Technologique de l'Afrique ?</h2>
-            <p class="lead mb-4">Rejoignez la Formation UNIPOD aujourd'hui et faites partie du mouvement pour développer les compétences numériques à travers le continent.</p>
+            <p class="lead mb-4">Rejoignez la formation UNIPOD dès aujourd'hui et faites partie du mouvement de développement des compétences numériques à travers le continent.</p>
             <a href="https://forms.gle/aVF7mqV1YphGsWAbA" class="btn btn-light btn-lg" target="_blank">Postuler Maintenant</a>
         </div>
     </section>
